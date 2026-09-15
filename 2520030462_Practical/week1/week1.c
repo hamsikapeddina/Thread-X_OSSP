@@ -22,19 +22,19 @@ int main()
 
     if (pid == 0)
     {
-        // Child process
+        
         printf("Child Process PID: %d\n", getpid());
         printf("Executing command: %s\n", command);
 
         execlp(command, command, (char *)NULL);
 
-        // Executes only if exec fails
+       
         printf("Exec failed\n");
         exit(1);
     }
     else
     {
-        // Parent process
+       
         printf("Parent Process PID: %d\n", getpid());
         printf("Waiting for child process...\n");
 
