@@ -11,14 +11,8 @@ int main()
 
     printf("Parent PID: %d\n", getpid());
 
-    // Create first child
     child1 = fork();
 
-    if (child1 < 0)
-    {
-        perror("fork failed");
-        return 1;
-    }
 
     if (child1 == 0)
     {
@@ -28,14 +22,8 @@ int main()
         exit(10);
     }
 
-    // Create second child
     child2 = fork();
 
-    if (child2 < 0)
-    {
-        perror("fork failed");
-        return 1;
-    }
 
     if (child2 == 0)
     {
@@ -45,7 +33,7 @@ int main()
         exit(20);
     }
 
-    // Parent waits for Child 1 using wait()
+ 
     printf("\nParent waiting using wait()...\n");
 
     wait(&status);
@@ -54,7 +42,7 @@ int main()
         printf("A child terminated with exit status: %d\n",
                WEXITSTATUS(status));
 
-    // Parent waits specifically for Child 2 using waitpid()
+
     printf("Parent waiting for Child 2 using waitpid()...\n");
 
     waitpid(child2, &status, 0);
