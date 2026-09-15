@@ -26,7 +26,6 @@ int main()
 
     if (pid == 0)
     {
-        // Child: Consumer
         char buffer[100];
 
         close(pipefd[1]);
@@ -39,7 +38,6 @@ int main()
     }
     else
     {
-        // Parent: Producer
         char message[] = "Hello from Parent Producer!";
 
         close(pipefd[0]);
@@ -54,7 +52,7 @@ int main()
 
         printf("\n--- Executing ls -l | grep \".c\" ---\n");
 
-        // Create pipe for ls | grep
+       
         int fd[2];
         pipe(fd);
 
@@ -62,7 +60,7 @@ int main()
 
         if (p1 == 0)
         {
-            // First child: ls -l
+           
             close(fd[0]);
 
             dup2(fd[1], STDOUT_FILENO);
@@ -79,7 +77,7 @@ int main()
 
         if (p2 == 0)
         {
-            // Second child: grep ".c"
+            
             close(fd[1]);
 
             dup2(fd[0], STDIN_FILENO);
