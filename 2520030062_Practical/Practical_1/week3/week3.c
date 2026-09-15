@@ -14,15 +14,10 @@ int main()
 
     pid = fork();
 
-    if (pid < 0)
-    {
-        perror("fork failed");
-        return 1;
-    }
 
     if (pid == 0)
     {
-        // Child process
+        
         printf("\n--- Child Process ---\n");
         printf("Child PID: %d\n", getpid());
         printf("Child PPID: %d\n", getppid());
@@ -35,7 +30,7 @@ int main()
     }
     else
     {
-        // Parent process
+        
         printf("\n--- Parent Process ---\n");
         printf("Parent PID: %d\n", getpid());
         printf("Child PID: %d\n", pid);
