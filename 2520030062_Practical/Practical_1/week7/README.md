@@ -1,18 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-int global=100;
-static int s=50;
+<img width="516" height="300" alt="Screenshot 2026-11-01 153745" src="https://github.com/user-attachments/assets/da962029-5fcd-47d6-afc1-49ca11a594f3" />
 
-int main()
-{
-    int stack=10;
-    int *heap=(int*)malloc(sizeof(int));
-
-    printf("Code Segment   : %p\n",main);
-    printf("Global Segment : %p\n",&global);
-    printf("Static Segment : %p\n",&s);
-    printf("Heap Segment   : %p\n",heap);
-    printf("Stack Segment  : %p\n",&stack);
-    free(heap);
-    return 0;
-}
+<img width="635" height="500" alt="Screenshot 2026-11-01 154106" src="https://github.com/user-attachments/assets/30769bc3-0095-4845-bc21-a78506c1752d" />
